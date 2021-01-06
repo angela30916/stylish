@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L32TRS0NXN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-L32TRS0NXN');
+        </script>         
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stylish 購物車</title>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/cart-style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://js.tappaysdk.com/tpdirect/v5.4.0"></script>
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="padding-mobile"></div>
+            <div class="logo">
+                <a href="./"
+                    ><img src="images/logo.png" alt="logo"
+                /></a>
+            </div>
+            <nav>
+                <div class="nav"><a href="./?tag=women">女裝</a></div>
+                <div class="nav"><a href="./?tag=men">男裝</a></div>
+                <div class="nav"><a href="./?tag=accessories">配件</a></div>
+            </nav>
+            <div class="feature">
+                <form class="search" action="./?tag=${tag}" method="GET">
+                    <input type="text" name="tag" />
+                </form>
+                <a href="cart.html" class="cart">
+                    <div id="cart-qty" class="qty">0</div>
+                </a>
+                <div class="member">
+                    <a href="javascript:;" onclick="checkLoginState()"><img src="images/member.png" alt="member" /></a>
+                </div>
+            </div><!--/.feature-->
+        </header>
+        <nav class="mobile">
+            <div class="m-nav"><a href="./?tag=women">女裝</a></div>
+            <div class="m-nav"><a href="./?tag=men">男裝</a></div>
+            <div class="m-nav"><a href="./?tag=accessories">配件</a></div>
+        </nav>
+        <div class="padding-header-mobile"></div>
+        <div class="m-feature">
+            <a class="m-cart" href="cart.html">
+                <div class="cart-div">
+                    <div id="m-cart-qty" class="qty">0</div>
+                </div>
+                購物車
+            </a>
+            <a href="javascript:;" onclick="checkLoginState()" class="m-member">
+                <img src="images/member-mobile.png" alt="member-mobile" />
+                <span>會員</span>
+            </a>
+        </div>
+        <main>
+            <div class="container">
+                <div class="shopping-list">
+                    <div class="row title">
+                        <div class="content">&NonBreakingSpace;</div>
+                        <div class="num">數量</div>
+                        <div class="price">單價</div>
+                        <div class="subtotal">小計</div>
+                        <div class="remove"></div>
+                    </div>
+                    <div class="list"></div><!-- insert products here -->
+                </div><!-- /.shopping-list -->
+                <div class="target">
+                    <div class="opt">
+                        <span>配送地區</span>
+                        <select>
+                            <option>台灣本島</option>
+                            <option>離島地區</option>
+                            <option>海外國家</option>
+                        </select>
+                    </div>
+                    <div class="opt">
+                        <span>付款方式</span>
+                        <select>
+                            <option>信用卡付款</option>
+                        </select>
+                    </div>
+                </div><!-- /.target -->
+                <div class="reminder">
+                    <div>※ 提醒您：</div>
+                    <div>● 請填寫正確收件人資訊，避免包裹配送不達</div>
+                    <div>● 請填寫正確收件人姓名 ( 與證件相符 )，避免無法領取</div>
+                </div><!-- /.reminder -->
+                <div class="recipient">
+                    <div class="title">收件資料</div>
+                    <div class="line">
+                        <div class="text">收件人姓名</div>
+                        <div class="input">
+                            <input type="text" class="name-input">
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="text">Email</div>
+                        <div class="input">
+                            <input type="text" class="email-input">
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="text">手機號碼</div>
+                        <div class="input">
+                            <input type="text" class="phone-input">
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="text">收件地址</div>
+                        <div class="input">
+                            <input type="text" class="address-input">
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="text">配送時間</div>
+                        <div class="input">
+                            <label>
+                                <input type="radio" value="morning" name="time-input">
+                                <span class="time"> 08:00 - 12:00</span>
+                            </label>
+                            <label>
+                                <input type="radio" value="morning" name="time-input">
+                                <span class="time"> 14:00 - 18:00</span>
+                            </label>
+                            <label>
+                                <input type="radio" value="anytime" name="time-input" checked>
+                                <span class="time"> 不指定</span>
+                            </label>
+                        </div>
+                    </div>
+                </div><!--/.recipient-->
+                <div class="payment">
+                    <div class="title">付款資料</div>
+                    <div class="line">
+                        <div class="text">信用卡號碼</div>
+                        <div class="input">
+                            <div class="tpfield" id="card-number"></div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="text">有效期限</div>
+                        <div class="input">
+                            <div class="tpfield" id="card-expiration-date"></div>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <div class="text">安全碼</div>
+                        <div class="input">
+                            <div class="tpfield" id="card-ccv"></div>
+                        </div>
+                    </div>
+                </div><!--/.payment-->
+                <div class="confirm">
+                    <div class="row">
+                        <div class="title">總金額</div>
+                        <div class="money">
+                            <span class="nt">NT. </span>
+                            <span class="total">0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="title">運費</div>
+                        <div class="money">
+                            <span class="nt">NT. </span>
+                            <span class="freight">60</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="sep"></div>
+                    </div>
+                    <div class="row">
+                        <div class="title">應付金額</div>
+                        <div class="money">
+                            <span class="nt">NT. </span>
+                            <span class="totalfee">0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="checkout" onclick="onSubmit(event)">確認付款</button>
+                    </div>
+                </div><!--/.confirm-->
+                <div class="loading">
+                    <img src="images/loading.gif" alt="loading">
+                </div>
+            </div><!--/.container-->
+        </main>
+        <footer class="footer">
+            <div class="f-nav">
+                <div class="link link1">
+                    <div class="connect">關於 Stylish</div>
+                    <div class="connect">服務條款</div>
+                    <div class="connect">隱私政策</div>
+                </div>
+                <div class="link link2">
+                    <div class="connect">聯絡我們</div>
+                    <div class="connect end">FAQ</div>
+                </div>
+                <div class="social">
+                    <img src="images/line.png" alt="line-link" />
+                    <img src="images/twitter.png" alt="twitter-link" />
+                    <img src="images/facebook.png" alt="facebook-link" />
+                </div>
+                <div class="copyright">&copy; 2020. All rights reserved.</div>
+            </div><!--/.f-nav-->
+        </footer>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js"></script>
+        <script src="js/fb.js"></script>
+        <script src="js/cart.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/8.0.0/firebase-app.js"></script>
+        <script src="/__/firebase/8.0.0/firebase-analytics.js"></script>
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
+       </body>
+</html>

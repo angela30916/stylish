@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L32TRS0NXN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-L32TRS0NXN');
+        </script>        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Stylish 產品資訊</title>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/product-style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="padding-mobile"></div>
+            <div class="logo">
+                <a href="./"
+                    ><img src="images/logo.png" alt="logo"
+                /></a>
+            </div>
+            <nav>
+                <div class="nav"><a href="./?tag=women">女裝</a></div>
+                <div class="nav"><a href="./?tag=men">男裝</a></div>
+                <div class="nav"><a href="./?tag=accessories">配件</a></div>
+            </nav>
+            <div class="feature">
+                <form class="search" action="./?tag=${tag}" method="GET">
+                    <input type="text" name="tag" />
+                </form>
+                <a href="cart.html" class="cart">
+                    <div id="cart-qty" class="qty">0</div>
+                </a>
+                <div class="member">
+                    <a href="javascript:;" onclick="checkLoginState()"><img src="images/member.png" alt="member" /></a>
+                </div>
+            </div><!--/.feature-->
+        </header>
+        <nav class="mobile">
+            <div class="m-nav"><a href="./?tag=women">女裝</a></div>
+            <div class="m-nav"><a href="./?tag=men">男裝</a></div>
+            <div class="m-nav"><a href="./?tag=accessories">配件</a></div>
+        </nav>
+        <div class="padding-header-mobile"></div>
+        <div class="m-feature">
+            <a class="m-cart" href="cart.html">
+                <div class="cart-div">
+                    <div id="m-cart-qty" class="qty">0</div>
+                </div>
+                購物車
+            </a>
+            <a href="javascript:;" onclick="checkLoginState()" class="m-member">
+                <img src="images/member-mobile.png" alt="member-mobile" />
+                <span>會員</span>
+            </a>
+        </div>
+        <main>
+            <div class="container"></div>
+            <div class="loader-ellips">
+                <span class="loader-ellips__dot"></span>
+                <span class="loader-ellips__dot"></span>
+                <span class="loader-ellips__dot"></span>
+                <span class="loader-ellips__dot"></span>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="f-nav">
+                <div class="link link1">
+                    <div class="connect">關於 Stylish</div>
+                    <div class="connect">服務條款</div>
+                    <div class="connect">隱私政策</div>
+                </div>
+                <div class="link link2">
+                    <div class="connect">聯絡我們</div>
+                    <div class="connect end">FAQ</div>
+                </div>
+                <div class="social">
+                    <img src="images/line.png" alt="line-link" />
+                    <img src="images/twitter.png" alt="twitter-link" />
+                    <img src="images/facebook.png" alt="facebook-link" />
+                </div>
+                <div class="copyright">&copy; 2020. All rights reserved.</div>
+            </div><!--/.f-nav-->
+        </footer>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js"></script>
+        <script src="js/fb.js"></script>
+        <script src="js/product.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/8.0.0/firebase-app.js"></script>
+        <script src="/__/firebase/8.0.0/firebase-analytics.js"></script>
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
+    </body>
+</html>
